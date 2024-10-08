@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Diams Architecture & Design</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link rel="stylesheet" href="lib/animate/animate.min.css" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2666928b18.js" crossorigin="anonymous"></script>
+
+    <link rel="icon" type="image/x-icon" href="img/logo/logoing1.ico" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "vqDANANIFuMY0yUln",
+            });
+        })();
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar End -->
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0  " id="mainNav">
+            <a href="" class="navbar-brand p-0">
+                <h1 class="text-primary"><img src="img/logo/logoing1.ico" class="m-2 logoinicio"></img></h1>
+
+                <!-- <img src="img/logo.png" alt="Logo"> -->
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link ">Inicio</a>
+                    <a href="#about" class="nav-item nav-link">Acerca De</a>
+                    <a href="#services" class="nav-item nav-link">Servicios</a>
+                    <a href="#projects" class="nav-item nav-link">Proyectos</a>
+                    <a href="#contact" class="nav-item nav-link">Contactanos</a>
+                    <a class="nav-item nav-link btn btn-primary mr-3" id="infoButton" type="button"
+                        data-bs-toggle="modal" data-bs-target="#imageModal" disabled>
+                        Mas Info
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+
+        <div class="modal fade" id="imageModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content mimodalcontent">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Información Personal</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            onclick="clearParagraphContent()"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="carousel-item active">
+
+                            <img src="img/Presentation/ingeniero.jpg" class="d-block w-100 mb-2" alt="Imagen 1">
+
+                            <h4 class="mb-2 text-center">Arq. Ramon Martinez </h4>
+                            <span><strong>Codia: </strong>46612</span><br>
+                            <span><strong>Rol: </strong>Gerente socio</span>
+
+                            <hr>
+                            <p id="modalParagraph"></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+            // Función para mostrar el modal si no ha sido mostrado antes y no está actualmente mostrado
+            window.onload = function () {
+                var modalElement = document.getElementById('imageModal');
+                var bootstrapModal = new bootstrap.Modal(modalElement);
+
+                // Verificar si ya existe una clave en localStorage
+                if (!localStorage.getItem('modalShown') && !modalElement.classList.contains('show')) {
+
+                    document.getElementById('modalParagraph').innerHTML = "<strong>Nota</strong>: para volver a ver este cuadro, presione 'más info' en la barra de navegacion superior de la página o pulse la imagen arriba de 'Bienvenido' .";
+
+                    // Mostrar el modal automáticamente la primera vez
+                    bootstrapModal.show();
+                    // Establecer la clave 'modalShown' en localStorage
+                    localStorage.setItem('modalShown', 'true');
+                }
+            };
+
+            // Función para borrar el contenido del párrafo
+            function clearParagraphContent() {
+                var paragraph = document.getElementById('modalParagraph');
+                // Verificar si hay contenido en el párrafo
+                if (paragraph.textContent.trim() !== "") {
+                    paragraph.textContent = ""; // Borra el contenido del párrafo
+                }
+            }
+        </script>
+
+
+        <!-- Carousel Start -->
+        <div class="header-carousel owl-carousel gx-2 ">
+            <div class="header-carousel-item">
+                <img src="img/fondo-logo.jpg" class="img-fluid w-100 mifondologo" alt="Image">
+                <div class="carousel-caption ">
+                    <div class="container container-mio ">
+
+                        <div class="row gy-5 mb-2">
+                            <div class="col-xl-1 col-lg-1 col-md-1 animated fadeInRight">
+                                <div class="text-sm-center text-md-start d-flex flex-column flex-md-row align-items-center">
+                                    <!-- Imagen -->
+                                    <a id="infoButton" type="button" data-bs-toggle="modal" data-bs-target="#imageModal">
+                                        <img class="miimgport" src="img/Presentation/ingportada.jpg">
+                                    </a>
+                                    <!-- Texto del arquitecto -->
+                                    <span class="mt-2 mt-md-0 ms-0 ms-md-3 text-white fw-bold text-portada">Arq. Ramon Martinez</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row gy-5 ">
+
+                            <div class="col-xl-5 col-lg-5 col-md-12 animated fadeInRight ">
+                                <div class="text-sm-center text-md-start"> <!-- Cambié text-md-end por text-md-start -->
+
+
+                                    <h4 class="text-primary text-uppercase fw-bold mb-4">Bienvenido</h4>
+                                    <h1 class="display-4 text-uppercase text-white mb-4">Diams Arquitecture & Design
+                                    </h1>
+
+                                    <div
+                                        class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
+                                        <!-- Cambié justify-content-md-end por justify-content-md-start -->
+
+                                        <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 " href="#about">Saber
+                                            Mas</a>
+                                    </div>
+                                    <div
+                                        class="d-flex align-items-center justify-content-center justify-content-md-start">
+                                        <!-- Cambié justify-content-md-end por justify-content-md-start -->
+                                        <h2 class="text-white me-2">Siguenos:</h2>
+                                        <div class="d-flex justify-content-start ms-2">
+                                            <!-- Cambié justify-content-end por justify-content-start -->
+                                            <a class="btn btn-md-square btn-light rounded-circle me-2"
+                                                href="https://www.facebook.com/profile.php?id=61566513933424&mibextid=LQQJ4d"
+                                                target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                            <a class="btn btn-md-square btn-light rounded-circle mx-2"
+                                                href="https://www.threads.net/@diams_architecturedesign"
+                                                target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                                            <a class="btn btn-md-square btn-light rounded-circle mx-2"
+                                                href="https://www.instagram.com/diams_architecturedesign?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                                                target="_blank"><i class="fab fa-instagram"></i></a>
+                                            <a class="btn btn-md-square btn-light rounded-circle ms-2"
+                                                href="https://www.youtube.com/@diamondarchitecture5658"
+                                                target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-xl-7 col-lg-7 col-md-12 animated fadeInRight">
+
+
+
+                                <div class="carousel-container" style="height: 100%;">
+                                    <div id="carouselExampleControls" class="carousel slide" <div
+                                        class="carousel-inner">
+                                        <div class="carousel-item active ">
+                                            <div class="video-container">
+
+                                                <iframe class="mi-iframe" width="100%" height="400"
+                                                    src="https://www.youtube.com/embed/NF0DbEeDh1E?si=tLkM88a7mKNWNeZl"
+                                                    title="YouTube video player" frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                    referrerpolicy="strict-origin-when-cross-origin"
+                                                    allowfullscreen></iframe>
+                                            </div>
+
+                                        </div>
+                                        <div class="carousel-item ">
+
+                                            <div class="video-container">
+
+                                                <iframe class="mi-iframe" width="100%" height="400"
+                                                    src="https://www.youtube.com/embed/5oH7eolbOmU?si=isRLYIY-6tTGZchA"
+                                                    title="YouTube video player" frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                    referrerpolicy="strict-origin-when-cross-origin"
+                                                    allowfullscreen></iframe>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item ">
+                                            <div class="video-container">
+
+                                                <iframe class="mi-iframe" width="100%" height="400"
+                                                    src="https://www.youtube.com/embed/TwQwsBd8gp8?si=Ia2HidteG6-iz62y"
+                                                    title="YouTube video player" frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                    referrerpolicy="strict-origin-when-cross-origin"
+                                                    allowfullscreen></iframe>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+
+
+    <style>
+        /* Deshabilitar el deslizamiento del carrusel */
+        .disabled-carousel {
+            pointer-events: none;
+            /* Desactiva la interacción */
+        }
+
+        .owl-carousel .owl-stage {
+            transform: none !important;
+            /* Evita que las imágenes cambien de posición */
+        }
+    </style>
+
+
+    <!-- Carousel End -->
+    </div>
+    <!-- Navbar & Hero End -->
+
+
+    <!-- Abvout Start -->
+    <section class="container-fluid about py-5 " id="about">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
+                    <div>
+
+                        <h4 class="text-primary">Acerca De</h4>
+                        <h1 class="display-5 mb-4">Conoce nuestra empresa y transforma tus ideas en realidad</h1>
+                        <p class="mb-4">En Diams Architecture & Design, nos especializamos en el diseño arquitectónico y
+                            la construcción de desarrollos inmobiliarios, abarcando viviendas unifamiliares y
+                            multifamiliares, villas, y proyectos hoteleros, turísticos, comerciales y urbanísticos.
+                            Creamos espacios innovadores que combinan funcionalidad y estética, adaptándonos a las
+                            necesidades de nuestros clientes. Desde la planificación inicial hasta la ejecución final,
+                            nuestro equipo se compromete a entregar soluciones sostenibles y modernas, cuidando cada
+                            detalle para lograr resultados excepcionales.
+                        </p>
+                        <div class="row g-4">
+
+                            <div class="col-md-6 col-lg-6 col-xl-6">
+                                <div class="d-flex">
+                                    <div><i class="bi bi-bookmark-heart-fill fa-3x text-primary me-2"></i></div>
+                                    <div class="ms-4">
+                                        <h4>Experiencia</h4>
+                                        <p>Desde 14/2/2023</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6 ">
+                                <div class="d-flex">
+                                    <i class="fas fa-phone-alt fa-3x text-primary me-2"></i>
+                                    <div class="ms-4">
+                                        <h4>Llamanos</h4>
+                                        <p class="mb-0 fs-5" style="letter-spacing: 1px;">+1 (829) 725-0007</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
+                    <div class="bg-primary rounded position-relative overflow-hidden">
+                        <img src="img/logo/logoing.jpg" class="img-fluid rounded w-100" alt="">
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About End -->
+
+
+
+    <!-- Services Start -->
+    <section class="container-fluid feature pb-5 pt-5" id="services">
+        <div class="container pb-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-primary">Nuestros Servicios</h4>
+                <h1 class="display-5 mb-4">Ofrecemos los mejores servicios</h1>
+
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="feature-item p-4">
+                        <div class="feature-icon p-4 mb-4">
+                            <i class="fa-solid fa-shop fa-4x text-primary"></i>
+                        </div>
+                        <h4>Comercial</h4>
+                        <p class="mb-4">Diseño de espacios comerciales optimizados para la funcionalidad y la atracción
+                            del cliente, garantizando un entorno eficiente y estéticamente agradable.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="feature-item p-4">
+                        <div class="feature-icon p-4 mb-4">
+                            <i class="fa-solid fa-building fa-4x text-primary"></i>
+                        </div>
+
+                        <h4>Viviendas Unifamiliares y Multifamiliares</h4>
+                        <p class="mb-4">Diseño y construcción de hogares personalizados que optimizan el espacio, la
+                            funcionalidad y el confort, adaptados a las necesidades individuales o familiares.
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="feature-item p-4">
+                        <div class="feature-icon p-4 mb-4">
+                            <i class="fa-solid fa-house fa-4x text-primary"></i>
+                        </div>
+                        <h4>Villas</h4>
+                        <p class="mb-4">Creación de residencias exclusivas que combinan lujo y privacidad, con diseños
+                            únicos que integran el entorno natural y maximizan la comodidad.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="feature-item p-4">
+                        <div class="feature-icon p-4 mb-4">
+                            <i class="fa-solid fa-hotel fa-4x text-primary"></i>
+                        </div>
+                        <h4>Intervenciones Hoteleras</h4>
+                        <p class="mb-4">Proyectos hoteleros innovadores que ofrecen experiencias memorables a los
+                            huéspedes, priorizando la funcionalidad, el diseño moderno y la sostenibilidad.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.8s">
+                    <div class="feature-item p-4">
+                        <div class="feature-icon p-4 mb-4">
+                            <i class="fa-solid fa-globe-americas fa-4x text-primary"></i>
+                        </div>
+                        <h4>Proyectos Turísticos</h4>
+                        <p class="mb-4">Desarrollo de espacios turísticos que fusionan la belleza del entorno con
+                            instalaciones modernas, proporcionando experiencias inolvidables a los visitantes.
+
+
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.8s">
+                    <div class="feature-item p-4">
+                        <div class="feature-icon p-4 mb-4">
+                            <i class="fa-solid fa-city fa-4x text-primary"></i>
+                        </div>
+                        <h4>Proyectos Urbanísticos</h4>
+                        <p class="mb-4">Planificación y diseño de desarrollos urbanos sostenibles, que promueven la
+                            armonía entre los espacios residenciales, comerciales y recreativos.
+
+
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services End -->
+
+    <!-- projects Start -->
+    <section class="container-fluid service pb-5 pt-5" id="projects">
+        <div class="container pb-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-primary">Nuestros Proyectos</h4>
+                <h1 class="display-5 mb-4">Algunos de nuestros proyectos destacados</h1>
+
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="service-item mb-3">
+                        <div class="service-img">
+                            <video class="mivideop" controls>
+                                <source src="videos/proyectos/proyecto1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="rounded-bottom p-4">
+                            <h4>Restaurante Victoriano</h4>
+                            <p class="mb-4">Es un restaurante con buenas vistas al mar, con un diseño victoriano.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="service-item mb-3">
+                        <div class="service-img">
+                            <video class="mivideop" controls>
+                                <source src="videos/proyectos/proyecto2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="rounded-bottom p-4">
+                            <h4>Teatro Moderno</h4>
+                            <p class="mb-4">Es un teatro moderno con restaurante y zona de parque.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="service-item mb-3">
+                        <div class="service-img">
+                            <video class="mivideop" controls>
+                                <source src="videos/proyectos/proyecto3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="rounded-bottom p-4">
+                            <h4>Facultad De Arquitectura</h4>
+                            <p class="mb-4">Es una facultad de arquitectura con un diseño moderno.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="service-item mb-3">
+                        <div class="service-img">
+                            <video class="mivideop" controls>
+                                <source src="videos/proyectos/proyecto4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="rounded-bottom p-4">
+                            <h4>Pequeña villa "Diamond"</h4>
+                            <p class="mb-4">Es una villa con un diseño moderno, incluye patio y piscina.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="service-item mb-3">
+                        <div class="service-img">
+                            <video class="mivideop" controls>
+                                <source src="videos/proyectos/proyecto5.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="rounded-bottom p-4">
+                            <h4>Centro De Reinsercion Social</h4>
+                            <p class="mb-4">Centro de reinserción social con diseño moderno, funcional y sostenible.</d>
+                            </p>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="service-item mb-3">
+                        <div class="service-img">
+                            <video class="mivideop" controls>
+                                <source src="videos/proyectos/proyecto6.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <div class="rounded-bottom p-4">
+                            <h4>Villa Moderna</h4>
+                            <p class="mb-4">Villa con un diseño arquitectónico moderno y materiales modernos.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- projects End -->
+
+
+    <!-- Team Start -->
+    <div class="container-fluid team pb-5 pt-5">
+        <div class="container pb-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-primary">Nuestro Equipo</h4>
+                <h1 class="display-5 mb-4">Conoce los integrantes de nuestro equipo</h1>
+                <p class="mb-0">En Diams Architecture & Design, contamos con un equipo de arquitectos y diseñadores
+                    altamente capacitados y apasionados por crear espacios únicos. Cada miembro de nuestro equipo aporta
+                    experiencia, creatividad y un compromiso inquebrantable con la calidad en cada proyecto.</p>
+            </div>
+            <div class="row g-4 ">
+
+                <div class="col-md-6 col-lg-6 col-xl-4 offset-xl-2 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="img/team/ingeniero2x2.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="team-title">
+                            <h4 class="mb-0">Arq. Ramon Martinez
+
+                            </h4>
+                            <p class="mb-0">Gerente socio</p>
+                        </div>
+                        <div class="team-icon">
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
+                                    class="fab fa-twitter"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="img/team/usuario.png" class="img-fluid" alt="">
+                        </div>
+                        <div class="team-title">
+                            <h4 class="mb-0">Arq. stanley Jeudy</h4>
+                            <p class="mb-0">Gerente socio</p>
+                        </div>
+                        <div class="team-icon">
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
+                                    class="fab fa-twitter"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+    <section class="container-fluid contact py-5" id="contact">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-primary">Contactanos</h4>
+                <h1 class="display-5 mb-4">Ponte en contacto para cotizar tu proyecto con nostros</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-xl-6">
+                    <div class="wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="bg-light rounded p-5 mb-5">
+                            <h4 class="text-primary mb-4">Informacion de contacto</h4>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="contact-add-item">
+                                        <div class="contact-icon text-primary mb-4">
+                                            <i class="fas fa-map-marker-alt fa-2x"></i>
+                                        </div>
+                                        <div>
+                                            <h4>Ubicacion</h4>
+                                            <p class="mb-0">C/PENETRACION EDIFICIO 37,
+                                                APARTAMENTO 202, CIUDAD
+                                                MODELO, SANTO DOMINGO
+                                                NORTE, PROVINCIA SANTO
+                                                DOMINGO, REPÚBLICA
+                                                DOMINICANA</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact-add-item">
+                                        <div class="contact-icon text-primary mb-4">
+                                            <i class="fas fa-envelope fa-2x"></i>
+                                        </div>
+                                        <div>
+                                            <h4>Correo Electronico</h4>
+                                            <p class="mb-0">Ramonmartinez3032@gmail.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact-add-item">
+                                        <div class="contact-icon text-primary mb-4">
+                                            <i class="fa fa-phone-alt fa-2x"></i>
+                                        </div>
+                                        <div>
+                                            <h4>Telefono</h4>
+                                            <p class="mb-0">+1 (829) 725-0007</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact-add-item">
+                                        <div class="contact-icon text-primary mb-4">
+                                            <i class="fab fa-firefox-browser fa-2x"></i>
+                                        </div>
+                                        <div>
+                                            <h4>Pagina Web</h4>
+                                            <a href="https://diamsarchitecturedesign.com/"
+                                                class="mb-0 text-primary">https://diamsarchitecturedesign.com/</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-light p-5 rounded h-100 wow fadeInUp" data-wow-delay="0.2s">
+                            <h4 class="text-primary">Envia tu mensaje</h4>
+                            <form id="contactForm" action="https://formspree.io/f/mjkvbpal" method="POST">
+                                <div class="row g-4">
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" name="nombre" id="nombre"
+                                                placeholder="Nombre" required>
+                                            <label for="nombre">Nombre</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input name="correo" type="email" class="form-control border-0" id="correo"
+                                                placeholder="Correo Electronico" required>
+                                            <label for="correo">Correo electronico</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input name="celular" type="phone" class="form-control border-0"
+                                                id="celular" placeholder="Celular" required>
+                                            <label for="celular">Celular</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-xl-6">
+                                        <div class="form-floating">
+                                            <input name="tipodeproyecto" type="text" class="form-control border-0"
+                                                id="tipodeproyecto" placeholder="Proyecto" required>
+                                            <label for="tipodeproyecto">tipo de proyecto</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <input name="asunto" type="text" class="form-control border-0" id="asunto"
+                                                placeholder="Asunto" required>
+                                            <label for="asunto">Asunto</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea name="mensaje" class="form-control border-0"
+                                                placeholder="Deja un mensaje aqui" id="mensaje" required
+                                                style="height: 160px"></textarea>
+                                            <label for="mensaje">Mensaje</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100 py-3" id="submitButton"
+                                            type="submit">Mandar Mensaje</button>
+                                    </div>
+
+                                    <input type="hidden" name="_next"
+                                        value="https://51ab8c74-afa5-44fd-8125-ba2fe0f7bea9-00-293wej0q6s3yu.kirk.replit.dev/#contact">
+
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
+                    <div class="rounded h-100">
+                        <iframe class="rounded h-100 w-100" style="height: 400px;"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13294.95965105807!2d-69.9471025776969!3d18.560446763687473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaf8f84270790df%3A0x120abe9cfa4a0a13!2sEdificio%2037!5e0!3m2!1ses-419!2sdo!4v1728097714827!5m2!1ses-419!2sdo"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact End -->
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+        <div class="container py-5 border-start-0 border-end-0"
+            style="border: 1px solid; border-color: rgb(255, 255, 255, 0.08);">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <span class="text-body"><a href="index.html" class="border-bottom text-white"><i
+                                class="fas fa-copyright text-light me-2"></i>Diams Architecture & Design</a>, Todos los
+                        derechos reservados.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
